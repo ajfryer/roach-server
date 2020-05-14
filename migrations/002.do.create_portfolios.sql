@@ -1,0 +1,4 @@
+CREATE TABLE portfolio (
+  key TEXT PRIMARY KEY UNIQUE NOT NULL,
+  value TEXT NOT NULL
+)
