@@ -9,8 +9,6 @@ import { dbRefreshTime } from '../config/app.config.js';
 
 const portfolioRouter = express.Router();
 
-portfolioRouter.use(cors());
-
 /* 
   api/portfolio/roach
   ?rebalance (int)
