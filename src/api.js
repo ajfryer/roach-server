@@ -10,6 +10,7 @@ const api = express();
 // express middleware
 if (NODE_ENV !== 'production') api.use(morgan('tiny'));
 api.use(helmet());
+api.use(cors());
 
 // portfolio endpoint
 api.use('/api/portfolio', portfolioRouter);
