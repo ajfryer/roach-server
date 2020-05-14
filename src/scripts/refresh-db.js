@@ -1,4 +1,4 @@
-const dbService = require('../database/index.db.js');
+import dbService from '../database/index.db.js';
 
 const refreshDb = async () => {
   await dbService.refresh();
