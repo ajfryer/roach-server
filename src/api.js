@@ -1,6 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
+import cors from 'cors';
 import { NODE_ENV } from './config/env.config.js';
 import portfolioRouter from './routers/portfolio.router.js';
 
