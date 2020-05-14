@@ -12,7 +12,7 @@
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
     "audit-filtered": "bash -c 'yarn audit --level high; [[ $? -ge 8 ]] && exit 1 || exit 0'",
-    "predeploy": "yarn test && yarn audit-filtered && yarn migrate:production",
+    "predeploy": "yarn test && yarn migrate:production",
     "deploy": "git push heroku master"
   },
   "keywords": [],
