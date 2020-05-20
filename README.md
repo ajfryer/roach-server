@@ -54,7 +54,7 @@ Query params:
 - array []
 - valid params: [.5,.5,0,0] (must sum to 1)
 
-## Set up Heroku Deployment
+## Heroku
 
 1. `heroku create`
 
