@@ -11,7 +11,7 @@ const portfolioRouter = express.Router();
 
 /* 
   api/portfolio/roach
-  ?rebalance (int)
+  ?strategy (string)
 */
 portfolioRouter.route('/roach').get(async (req, res, next) => {
   try {
