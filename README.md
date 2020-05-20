@@ -2,13 +2,11 @@
 
 Backend for Roach - harder to kill investment portfolios. Discover how alternative investments like gold and futures can diversify your stock and bond portfolio
 
-[Live Demo](https://roach.now.sh)
-
 Tech stack: Node, Express, Postgres
 
-Data sources: [AlphaVantage](https://www.alphavantage.co/)
-
 [Client Repo](https://github.com/ajfryer/roach-client)
+
+[Live Demo](https://roach.now.sh)
 
 ## Install
 
@@ -18,11 +16,9 @@ Data sources: [AlphaVantage](https://www.alphavantage.co/)
 
 3. Add dev, test, and production database URLs to .env
 
-4. [Create AlphaVantage API key and put in .env](https://www.alphavantage.co/support/#api-key)
+4. Migrate database: `yarn migrate` or `npm migrate`
 
-5. Migrate database: `yarn migrate` or `npm migrate`
-
-6. Schedule Heroku scheduler to run `yarn refresh-db` or `npm refresh-db` after market close (5pm EST)
+5. Schedule Heroku scheduler to run `yarn refresh-db` or `npm refresh-db` after market close (5pm EST)
 
 ## Scripts
 
@@ -68,10 +64,8 @@ Query params:
 
 4. `heroku addons:create scheduler:standard`
 
-5. Cchedule Heroku scheduler to run `yarn refresh-db` or `npm refresh-db` after market close (5pm EST)
+5. Schedule Heroku scheduler to run `yarn refresh-db` or `npm refresh-db` after market close (5pm EST)
 
-6. `heroku config:set AV_API_KEY=<your API key>`
+6. `yarn deploy` or `npm run deploy`
 
-7. `yarn deploy` or `npm run deploy`
-
-8. `heroku ps:scale web=1`
+7. `heroku ps:scale web=1`
