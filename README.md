@@ -1,26 +1,77 @@
-# Express Boilerplate!
+# Roach Server
 
-This is a boilerplate project used for starting new projects!
+Backend for Roach - harder to kill investment portfolios. Discover how alternative investments like gold and futures can diversify your stock and bond portfolio
 
-## Set up
+[Live Demo](https://roach.now.sh)
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+Tech stack: Node, Express, Postgres
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+Data sources: [AlphaVantage](https://www.alphavantage.co/)
+
+[Client Repo](https://github.com/ajfryer/roach-client)
+
+## Install
+
+1. `yarn install` or `npm install`
+
+2. `cp sample.env .env`
+
+3. Add dev, test, and production database URLs to .env
+
+4. [Create AlphaVantage API key and put in .env](https://www.alphavantage.co/support/#api-key)
+
+5. Migrate database: `yarn migrate` or `npm migrate`
+
+6. Schedule Heroku scheduler to run `yarn refresh-db` or `npm refresh-db` after market close (5pm EST)
 
 ## Scripts
 
-Start the application `npm start`
+Start server: `yarn start` or `npm run start`
 
-Start nodemon for the application `npm run dev`
+Dev server: `yarn dev` or `npm dev`
 
-Run the tests `npm test`
+Refresh database: `yarn update-db` or `npm update-db`
 
-## Deploying
+Migrate database: `yarn migrate-db` or `npm migrate-db`
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+Deploy to Heroku: `yarn deploy` or `npm run deploy`
+
+## API
+
+**Roach Portfolio resource**
+'/api/portfolio/roach'
+
+Query params:
+'?strategy'
+
+- Roach strategy name
+- string ""
+- valid params: "equalWeight", "minimumVariance"
+
+**Benchmark Portfolio resource**
+'/api/portfolio/benchmark'
+
+Query params:
+'?weights'
+
+- Benchmark strategy weights
+- array []
+- valid params: [.5,.5,0,0] (must sum to 1)
+
+## Set up Heroku Deployment
+
+1. `heroku create`
+
+2. `heroku addons:create heroku-postgresql:hobby-dev`
+
+3. `yarn migrate:production` or `npm migrate:production`
+
+4. `heroku addons:create scheduler:standard`
+
+5. Cchedule Heroku scheduler to run `yarn refresh-db` or `npm refresh-db` after market close (5pm EST)
+
+6. `heroku config:set AV_API_KEY=<your API key>`
+
+7. `yarn deploy` or `npm run deploy`
+
+8. `heroku ps:scale web=1`
