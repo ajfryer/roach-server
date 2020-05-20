@@ -26,7 +26,7 @@ Start server: `yarn start` or `npm run start`
 
 Dev server: `yarn dev` or `npm dev`
 
-Refresh database: `yarn update-db` or `npm update-db`
+Refresh database: `yarn refresh-db` or `npm refresh-db`
 
 Migrate database: `yarn migrate-db` or `npm migrate-db`
 
