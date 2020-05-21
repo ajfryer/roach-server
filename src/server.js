@@ -8,4 +8,4 @@ const server = () => {
   });
 };
 
-server().catch((e) => console.error(e));
+server();
