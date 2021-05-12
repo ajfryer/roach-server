@@ -27,7 +27,7 @@
     "fs": "^0.0.1-security",
     "helmet": "^3.21.2",
     "knex": "^0.21.1",
-    "mathjs": "^6.6.4",
+    "mathjs": "^7.5.1",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28",
     "morgan": "^1.9.1",
